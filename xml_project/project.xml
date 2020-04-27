@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collection>
+<service name="Vegetable service" id="1" category="food">
+<link href="#"/>
+<price>$12.00</price>
+</service>
+<service name="Fruit service" id="2" category="food">
+<link href="#"/>
+<price>$20.00</price>
+</service>
+<service name="Dress shop" id="3" category="clothes">
+<link href="#"/>
+<price>$20.00</price>
+</service>
+<service name="Trousers shop" id="4" category="clothes">
+<link href="#"/>
+<price>$25.00</price>
+</service>
+</collection>
