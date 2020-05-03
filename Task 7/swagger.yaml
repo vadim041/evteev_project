@@ -1,0 +1,117 @@
+swagger: '2.0'
+info:
+  version: 0.0.5
+  title: Good projects
+host: 'localhost:10011'
+basePath: /api/v1
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /projects/topics:
+    x-swagger-router-controller: projects
+    get:
+      description: List of topics for your projects
+      operationId: TopicsList
+      parameters:
+        - name: TopicID
+          in: query
+          description: Name of topic
+          required: false
+          type: string
+        - name: TopicsIndustry
+          in: query
+          description: Type of the topic
+          required: false
+          type: string
+        - name: TopicPrice
+          in: query
+          description: Time for topic
+          required: false
+          type: number
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TopicsList'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /projects/ideas:
+    x-swagger-router-controller: ideas
+    get:
+      description: List of ideas
+      operationId: ProjectsIdeas
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProjectsIdeas'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /projects/prices:
+    x-swagger-router-controller: prices
+    get:
+      description: List of prices
+      operationId: listPrices
+      parameters:
+        - name: price
+          in: query
+          description: The price of topic
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Prices'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /swagger:
+    x-swagger-pipe: swagger_raw
+definitions:
+  Prices:
+    properties:
+      dollars:
+        type: number
+      euro:
+        type: number
+      photo:
+        type: string
+  TopicsList:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      Time:
+        type: number
+      price:
+        type: number
+  ProjectsIdeas:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
