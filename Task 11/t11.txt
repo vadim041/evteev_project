@@ -1,0 +1,8 @@
+Running 2s test @ http://fp-projects:10011/api/v1/projects/topics
+  5 threads and 30 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    20.69ms    6.91ms  48.94ms   85.12%
+    Req/Sec   292.18     65.31   530.00     66.35%
+  3027 requests in 2.10s, 836.56KB read
+Requests/sec:   1441.85
+Transfer/sec:    398.48KB
